@@ -8,13 +8,17 @@
             // document.getElementById("#todoList")
             // $("#todoList")
             $(function(){
-                setTimeout(function(){
-                    alert( "Holy crap this this this ")
-                },10000
-
-                );
-
+                var todolist = $("#todoList");
+                var url = 'https://jsonplaceholder.typicode.com/todos';
+                $.getJSON( url, function(data) {
+                    for(var i=0; i<data.length;i++){
+                        todolist.append("<li>"+data[i].title+"</li>");
+                        console.log(data[i].title);
+                    }
+                });
             });
+                
+    
         </script>
     </head>
     <body>
